@@ -1,5 +1,14 @@
 #!/usr/bin/python
 import requests
+from pymongo import MongoClient
+
+client = MongoClient('mongodb://root:pass1234@localhost:27017/')
+db = client['mydb']
+print(db.command('ping'))
+
+collection = db['test']
+collection.insert_one({ 'name': 'User Form', 'user_phone':'phone', 'user_mail':'email', 'user_name':'text' })
+collection.insert_one({ 'name': 'Order Form', 'order_date':'date', 'user_name':'text', 'user_phone':'phone' })
 
 url = 'http://localhost:6666/get_form'
 data = [

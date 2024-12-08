@@ -1,0 +1,35 @@
+services:
+  mongodb:
+    healthcheck:
+      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/test --quiet
+      interval: 10s
+      timeout: 60s
+      retries: 6
+    image: mongo:latest
+    container_name: mongo_db
+    hostname: mongo
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: "root"
+      MONGO_INITDB_ROOT_PASSWORD: "pass1234"
+      MONGO_INITDB_DATABASE: "mydb"
+    networks:
+      - coolnet
+    ports:
+      - "27017:27017"
+
+  ekom:
+    restart: always
+    build:
+      context: .
+    env_file: "./app/.env"
+    container_name: ekom-test
+    networks:
+      - coolnet
+    ports:
+      - "6666:6666"
+    depends_on:
+      - mongodb
+
+networks:
+  coolnet:
+    name: coolnetwork
