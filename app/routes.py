@@ -27,7 +27,6 @@ async def get_form(request: Request):
     body = await request.json()
     types = form_service.get_types(body)
     form_name = form_service.get_form_name(types)
-    print(form_name)
     if form_name is None:
         return JSONResponse(types)
     return JSONResponse({
