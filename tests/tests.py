@@ -16,12 +16,14 @@ data = [
         'User Form': { 
             'username': 'danil',
             'myphone': '+7 895 234 65 24',
-            'myemail': 'danil@mail.ru'
+            'myemail': 'danil@mail.ru',
+            'testtxt': 'aaaa'
         },
         'Order Form': {
             'username': 'nedanil',
             'date_of_birth': '2013-13-13',
-            'user_phone': '+7 455 254 65 45'
+            'user_phone': '+7 455 254 65 45',
+            'other_phone': '+7 555 334 54 23'
         },
         'Error Form': {
             'myphone': '+7 865 435 12 34',
