@@ -1,5 +1,5 @@
-# Web-приложение для определения заполненных форм.
-используется: **Mongodb, docker compose, python 3.12, venv**
+м# Web-приложение для определения заполненных форм.
+используется: **Mongodb, docker compose, python 3.12**
 # запуск
 для старта:
 ```
@@ -20,7 +20,6 @@ docker compose up
 
 запуск:
 ```
-source venv/bin/activate
 pip install -r requirements.txt
 python tests/tests.py
 ```
